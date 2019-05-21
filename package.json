@@ -1,0 +1,83 @@
+{
+  "name": "nest-fastify",
+  "version": "0.0.1",
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "format": "prettier --write '**/*.{js,ts,json,yml,yaml}'",
+    "start": "ts-node -r tsconfig-paths/register src/main.ts",
+    "start:dev": "nodemon",
+    "start:debug": "nodemon --config nodemon-debug.json",
+    "prestart:prod": "rimraf dist && npm run build",
+    "start:prod": "node dist/main.js",
+    "lint": "tslint -p tsconfig.json -c tslint.json",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:cov": "jest --coverage",
+    "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
+    "test:e2e": "jest --config ./test/jest-e2e.json"
+  },
+  "engines": {
+    "node": "~12"
+  },
+  "dependencies": {
+    "@nestjs/common": "^6.2.3",
+    "@nestjs/core": "^6.2.3",
+    "@nestjs/platform-fastify": "^6.2.3",
+    "@nestjs/typeorm": "^6.1.1",
+    "bcrypt": "^3.0.6",
+    "class-transformer": "^0.2.2",
+    "class-validator": "^0.9.1",
+    "dotenv": "^8.0.0",
+    "mysql": "2.17.1",
+    "pino": "^5.12.5",
+    "reflect-metadata": "^0.1.13",
+    "rimraf": "^2.6.3",
+    "rxjs": "^6.5.2",
+    "typeorm": "^0.2.17"
+  },
+  "devDependencies": {
+    "@nestjs/testing": "^6.2.1",
+    "@types/bcrypt": "latest",
+    "@types/dotenv": "latest",
+    "@types/faker": "latest",
+    "@types/jest": "latest",
+    "@types/mysql": "latest",
+    "@types/node": "latest",
+    "@types/pino": "latest",
+    "@types/supertest": "latest",
+    "faker": "latest",
+    "husky": "latest",
+    "jest": "latest",
+    "nodemon": "latest",
+    "pino-pretty": "latest",
+    "prettier": "latest",
+    "pretty-quick": "latest",
+    "supertest": "latest",
+    "ts-jest": "latest",
+    "ts-node": "latest",
+    "tsconfig-paths": "latest",
+    "tslint": "latest",
+    "tslint-config-prettier": "latest",
+    "typescript": "^3.2.4"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "ts"
+    ],
+    "rootDir": "src",
+    "testRegex": ".spec.ts$",
+    "transform": {
+      "^.+\\.(t|j)s$": "ts-jest"
+    },
+    "coverageDirectory": "../coverage",
+    "testEnvironment": "node"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
+    }
+  }
+}
