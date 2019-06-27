@@ -64,10 +64,16 @@ function getEnvConfig(): EnvConfig {
       envConfig = process.env
       break
     case ['local', 'test', 'development'].includes(env):
-      envConfig = { ...parseFile('.env.dev'), ...parseFile(`.env.${process.env.NODE_ENV}`) }
+      envConfig = {
+        ...parseFile('.env.dev'),
+        ...parseFile(`.env.${process.env.NODE_ENV}`)
+      }
       break
     default:
-      envConfig = { ...parseFile(`.env.${process.env.NODE_ENV}`), ...parseFile(`.env`) }
+      envConfig = {
+        ...parseFile(`.env.${process.env.NODE_ENV}`),
+        ...parseFile(`.env`)
+      }
       if (Object.entries(envConfig).length === 0) {
         envConfig = process.env
       }

@@ -1,4 +1,11 @@
-import { Controller, Post, Body, UseInterceptors, ClassSerializerInterceptor, HttpCode } from '@nestjs/common'
+import {
+  Controller,
+  Post,
+  Body,
+  UseInterceptors,
+  ClassSerializerInterceptor,
+  HttpCode
+} from '@nestjs/common'
 import { CredentialsDto, AuthTokenDto } from './auth.dto'
 import { AuthService } from './auth.service'
 
